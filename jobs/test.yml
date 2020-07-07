@@ -3,7 +3,7 @@
 .test:
   stage: test
   tags:
-    - build
+    - athena-test
   script:
     - $TEST_SHELL
     - ls 
