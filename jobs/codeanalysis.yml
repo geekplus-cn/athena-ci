@@ -12,9 +12,9 @@
                                       -Dsonar.links.homepage=${CI_PROJECT_URL} \
                                       -Dsonar.sources=${SCAN_DIR} \
                                       -Dsonar.sourceEncoding=UTF-8 \
-                                      -Dsonar.java.binaries=${CACHE_DIR}/classes \
-                                      -Dsonar.java.test.binaries=${CACHE_DIR}/test-classes \
-                                      -Dsonar.java.surefire.report=${CACHE_DIR}/surefire-reports \
+                                      -Dsonar.java.binaries=. \
+                                      -Dsonar.java.test.binaries=. \
+                                      -Dsonar.java.surefire.report=. \
                                       -Dsonar.branch.name=${CI_COMMIT_REF_NAME}"
   artifacts:
     paths:
@@ -36,11 +36,11 @@
                                       -Dsonar.ws.timeout=30 \
                                       -Dsonar.projectDescription=${CI_PROJECT_TITLE} \
                                       -Dsonar.links.homepage=${CI_PROJECT_URL} \
-                                      -Dsonar.sources=${SCAN_DIR} \
+                                      -Dsonar.sources=. \
                                       -Dsonar.sourceEncoding=UTF-8 \
-                                      -Dsonar.java.binaries=${CACHE_DIR}/classes \
-                                      -Dsonar.java.test.binaries=${CACHE_DIR}/test-classes \
-                                      -Dsonar.java.surefire.report=${CACHE_DIR}/surefire-reports \
+                                      -Dsonar.java.binaries=. \
+                                      -Dsonar.java.test.binaries=. \
+                                      -Dsonar.java.surefire.report=. \
                                       -Dsonar.pullrequest.key=${CI_MERGE_REQUEST_IID} \
                                       -Dsonar.pullrequest.branch=${CI_MERGE_REQUEST_SOURCE_BRANCH_NAME} \
                                       -Dsonar.pullrequest.base=${CI_MERGE_REQUEST_TARGET_BRANCH_NAME} "
@@ -52,9 +52,9 @@
                                       -Dsonar.links.homepage=${CI_PROJECT_URL} \
                                       -Dsonar.sources=${SCAN_DIR} \
                                       -Dsonar.sourceEncoding=UTF-8 \
-                                      -Dsonar.java.binaries=${CACHE_DIR}/classes \
-                                      -Dsonar.java.test.binaries=${CACHE_DIR}/test-classes \
-                                      -Dsonar.java.surefire.report=${CACHE_DIR}/surefire-reports \
+                                      -Dsonar.java.binaries=. \
+                                      -Dsonar.java.test.binaries=. \
+                                      -Dsonar.java.surefire.report=. \
                                       -Dsonar.pullrequest.key=${CI_MERGE_REQUEST_IID} \
                                       -Dsonar.pullrequest.branch=${CI_MERGE_REQUEST_SOURCE_BRANCH_NAME} \
                                       -Dsonar.pullrequest.base=${CI_MERGE_REQUEST_TARGET_BRANCH_NAME}  \
