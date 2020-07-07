@@ -1,16 +1,27 @@
 include:
 - remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/build.yml'
 - remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/test.yml'
+- remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/codeanalysis.yml'
 
 variables:
   BUILD_SHELL: 'mvn clean package  -DskipTests'  ##构建命令
-  CACHE_DIR: 'target/'
+  CACHE_DIR: 'app-api/target/'
   TEST_SHELL : 'mvn test'                                   ##测试命令
   JUNIT_REPORT_PATH: 'app-api/target/surefire-reports/TEST-*.xml'   ##单元测试报告
   
+   # 代码扫描
+  SCANNER_HOME : "/opt/sonar-scanner-4.0.0.1744-linux"
+  SCAN_DIR : "app-api/src"
+  ARTIFACT_PATH : 'app-api/target/*.jar'                            ##制品目录
+
+cache:
+  paths:
+    - ${CACHE_DIR}
+    
 stages:
 - build
 - test
+- parallel01
 
 maven-build:
   stage: build
@@ -26,3 +37,12 @@ unit-test:
   - ls app-api/target/surefire-reports
   rules:
     - when: on_success
+ 
+ 
+ code_analysis:
+  stage: parallel01
+  extends: .codeanalysis-java
+  
+codeanalysis_mr:
+  stage: parallel01
+  extends: .codeanalysis-mr
