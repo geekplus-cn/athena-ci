@@ -16,8 +16,7 @@
                                       -Dsonar.java.source=1.8 \
                                       -Dsonar.language=java \
                                       -Dsonar.java.binaries=. \
-                                      -Dsonar.java.test.binaries=. \
-                                      -Dsonar.java.surefire.report=. \
+                                      -Dsonar.dependencyCheck.htmlReportPath = target/dependency-check-report.html
                                       #-Dsonar.branch.name=${CI_COMMIT_REF_NAME}"
   artifacts:
     paths:
