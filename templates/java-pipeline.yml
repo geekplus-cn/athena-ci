@@ -1,7 +1,5 @@
 include:
-  - project: 'geekplus-cn/athena-ci'
-    ref: master
-    file: 'jobs/build.yml'
+  - remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/build.yml'
   
 stages:
 - build
