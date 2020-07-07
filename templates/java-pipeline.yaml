@@ -1,5 +1,6 @@
 include:
-  - remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/build.yml'
+- remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/build.yml'
+- remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/test.yml'
 
 variables:
   BUILD_SHELL: 'mvn clean package  -DskipTests'  ##构建命令
@@ -9,9 +10,16 @@ variables:
   
 stages:
 - build
+- test
 
 maven-build:
   stage: build
   extends: .build
   rules:
   - when: on_success
+
+unit-test:
+  stage: test
+  extends: .test
+  rules:
+    - when: on_success
