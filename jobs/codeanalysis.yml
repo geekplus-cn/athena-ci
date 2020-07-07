@@ -10,8 +10,10 @@
                                       -Dsonar.ws.timeout=30 \
                                       -Dsonar.projectDescription=${CI_PROJECT_TITLE} \
                                       -Dsonar.links.homepage=${CI_PROJECT_URL} \
-                                      -Dsonar.sources=${SCAN_DIR} \
+                                      -Dsonar.sources=. \
                                       -Dsonar.sourceEncoding=UTF-8 \
+                                      -Dsonar.java.source=1.8 \
+                                      -Dsonar.language=java \
                                       -Dsonar.java.binaries=. \
                                       -Dsonar.java.test.binaries=. \
                                       -Dsonar.java.surefire.report=. \
@@ -38,6 +40,8 @@
                                       -Dsonar.links.homepage=${CI_PROJECT_URL} \
                                       -Dsonar.sources=. \
                                       -Dsonar.sourceEncoding=UTF-8 \
+                                      -Dsonar.java.source=1.8 \
+                                      -Dsonar.language=java \
                                       -Dsonar.java.binaries=. \
                                       -Dsonar.java.test.binaries=. \
                                       -Dsonar.java.surefire.report=. \
@@ -50,8 +54,10 @@
                                       -Dsonar.ws.timeout=30 \
                                       -Dsonar.projectDescription=${CI_PROJECT_TITLE} \
                                       -Dsonar.links.homepage=${CI_PROJECT_URL} \
-                                      -Dsonar.sources=${SCAN_DIR} \
+                                      -Dsonar.sources=. \
                                       -Dsonar.sourceEncoding=UTF-8 \
+                                      -Dsonar.java.source=1.8 \
+                                      -Dsonar.language=java \
                                       -Dsonar.java.binaries=. \
                                       -Dsonar.java.test.binaries=. \
                                       -Dsonar.java.surefire.report=. \
