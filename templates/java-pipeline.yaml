@@ -39,7 +39,7 @@ unit-test:
     - when: on_success
  
  
- code_analysis:
+code_analysis:
   stage: parallel01
   extends: .codeanalysis-java
   
