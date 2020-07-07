@@ -21,5 +21,8 @@ maven-build:
 unit-test:
   stage: test
   extends: .test
+  scripts:
+  - cd app-api
+  - $TEST_SHELL
   rules:
     - when: on_success
