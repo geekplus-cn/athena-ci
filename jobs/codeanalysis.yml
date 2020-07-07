@@ -18,7 +18,7 @@
                                       -Dsonar.java.binaries=. \
                                       -Dsonar.java.test.binaries=. \
                                       -Dsonar.java.surefire.report=. \
-                                      -Dsonar.branch.name=${CI_COMMIT_REF_NAME}"
+                                      #-Dsonar.branch.name=${CI_COMMIT_REF_NAME}"
   artifacts:
     paths:
       - "$ARTIFACT_PATH"
