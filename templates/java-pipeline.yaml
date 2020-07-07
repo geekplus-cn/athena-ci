@@ -1,0 +1,11 @@
+include:
+  - remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/build.yml'
+  
+stages:
+- build
+
+maven-build:
+  stage: build
+  extends: .build
+  rules:
+  - when: on_success
