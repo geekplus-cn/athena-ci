@@ -6,7 +6,7 @@ variables:
   BUILD_SHELL: 'mvn clean package  -DskipTests'  ##构建命令
   CACHE_DIR: 'target/'
   TEST_SHELL : 'mvn test'                                   ##测试命令
-  JUNIT_REPORT_PATH: 'target/surefire-reports/TEST-*.xml'   ##单元测试报告
+  JUNIT_REPORT_PATH: 'app-api/target/surefire-reports/TEST-*.xml'   ##单元测试报告
   
 stages:
 - build
@@ -22,8 +22,7 @@ unit-test:
   stage: test
   extends: .test
   script:
-  - cd app-api
-  - ls
   - $TEST_SHELL
+  - ls app-api/target/surefire-reports
   rules:
     - when: on_success
