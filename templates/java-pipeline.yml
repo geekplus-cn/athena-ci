@@ -1,0 +1,12 @@
+stages:
+- build
+
+maven_build:
+  stage: build
+  tags:
+  - athena-build
+  rules:
+  - when: on_success
+  script:
+  - mvn clean compile
+  - ls
