@@ -56,7 +56,7 @@ codeanalysis_mr:
   stage: parallel01
   extends: .codeanalysis-mr
   
-  
+#发布道镜像仓库  
 build_image:
   stage: buildimage
   extends: .build-docker
