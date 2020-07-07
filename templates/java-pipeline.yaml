@@ -1,5 +1,11 @@
 include:
   - remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/build.yml'
+
+variables:
+  BUILD_SHELL: 'mvn clean package  -DskipTests'  ##构建命令
+  CACHE_DIR: 'target/'
+  TEST_SHELL : 'mvn test'                                   ##测试命令
+  JUNIT_REPORT_PATH: 'target/surefire-reports/TEST-*.xml'   ##单元测试报告
   
 stages:
 - build
