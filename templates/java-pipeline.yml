@@ -1,12 +1,13 @@
+include:
+  - project: 'geekplus-cn/athena-ci'
+    ref: master
+    file: 'jobs/build.yml'
+  
 stages:
 - build
 
-maven_build:
+maven-build:
   stage: build
-  tags:
-  - athena-build
+  extends: .build
   rules:
   - when: on_success
-  script:
-  - mvn clean compile
-  - ls
