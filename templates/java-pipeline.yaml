@@ -57,7 +57,7 @@ codeanalysis_mr:
   extends: .codeanalysis-mr
   
   
- build_image:
+build_image:
   stage: buildimage
   extends: .build-docker
   rules:
