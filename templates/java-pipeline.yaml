@@ -2,6 +2,7 @@ include:
 - remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/build.yml'
 - remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/test.yml'
 - remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/codeanalysis.yml'
+- remote: 'https://raw.githubusercontent.com/geekplus-cn/athena-ci/master/jobs/docker-build.yml'
 
 variables:
   BUILD_SHELL: 'mvn clean package  -DskipTests'  ##构建命令
@@ -14,6 +15,13 @@ variables:
   SCAN_DIR : "app-api/src"
   ARTIFACT_PATH : 'app-api/target/*.jar'                            ##制品目录
 
+  #构建镜像
+  CI_REGISTRY: 'registry.cn-shanghai.aliyuncs.com'
+  #CI_REGISTRY_USER: 'xxxxxxxx'
+  #CI_REGISTRY_PASSWD: 'xxxxxxxx.'
+  IMAGE_NAME: "$CI_REGISTRY/$CI_PROJECT_PATH:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_PIPELINE_ID"
+  DOCKER_FILE_PATH: "./Dockerfile"
+  
 cache:
   paths:
     - ${CACHE_DIR}
@@ -22,6 +30,7 @@ stages:
 - build
 - test
 - parallel01
+- buildimage
 
 maven-build:
   stage: build
@@ -46,3 +55,10 @@ code_analysis:
 codeanalysis_mr:
   stage: parallel01
   extends: .codeanalysis-mr
+  
+  
+ build_image:
+  stage: buildimage
+  extends: .build-docker
+  rules:
+  - when: manual
