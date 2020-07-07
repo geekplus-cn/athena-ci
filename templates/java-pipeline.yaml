@@ -23,6 +23,7 @@ unit-test:
   extends: .test
   scripts:
   - cd app-api
+  - ls
   - $TEST_SHELL
   rules:
     - when: on_success
