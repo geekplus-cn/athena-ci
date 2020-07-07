@@ -1,1 +1,7 @@
-
+.build:
+  stage: build
+  tags:
+    - athena-bulid
+  script: 
+    - $BUILD_SHELL
+    - ls
