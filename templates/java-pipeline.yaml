@@ -21,7 +21,7 @@ maven-build:
 unit-test:
   stage: test
   extends: .test
-  scripts:
+  script:
   - cd app-api
   - ls
   - $TEST_SHELL
