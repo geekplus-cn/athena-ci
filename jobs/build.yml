@@ -1,7 +1,0 @@
-.build:
-  stage: build
-  tags:
-    - athena-build
-  script: 
-    - $BUILD_SHELL
-    - ls
